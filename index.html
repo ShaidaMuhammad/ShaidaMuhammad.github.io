@@ -1,1 +1,231 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaida Muhammad - Sr. Machine Learning Engineer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #77d4d8 3px solid;
+        }
+        header a {
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header nav {
+            float: right;
+            margin-top: 10px;
+        }
+        section#showcase {
+            min-height: 400px;
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 150px 20px;
+        }
+        section#showcase h1 {
+            font-size: 55px;
+            margin-top: 0;
+        }
+        section#showcase p {
+            font-size: 20px;
+        }
+        section#about {
+            padding: 20px;
+            background: #fff;
+            color: #333;
+        }
+        section#about h1 {
+            text-align: center;
+        }
+        .boxes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Shaida Muhammad</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#work">Work Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <div class="container">
+            <h1>Welcome to My Personal Webpage</h1>
+            <p>Senior Machine Learning Engineer specializing in NLP and AI</p>
+        </div>
+    </section>
+
+    <section id="about" class="container">
+        <h1>About Me</h1>
+        <p>Hi, I'm Shaida Muhammad, a Senior Machine Learning Engineer currently working at Love For Data in Karachi, Pakistan. I specialize in Natural Language Processing, text classification, and the deployment of machine learning models on cloud platforms. With a strong educational background and extensive experience in various machine learning frameworks, I am passionate about developing innovative AI solutions.</p>
+    </section>
+
+    <section id="work" class="container">
+        <h1>Work Experience</h1>
+        <div class="boxes">
+            <div class="box">
+                <h3>Sr. Machine Learning Engineer</h3>
+                <p><strong>Love For Data</strong> - Karachi, Pakistan<br>January 2024 – Present</p>
+                <ul>
+                    <li>Working on Large Language Models (LLMs)</li>
+                    <li>Summarization and information extraction with LLAMA-2</li>
+                    <li>Text classification with HuggingFace transformers</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Machine Learning Engineer</h3>
+                <p><strong>Datacrypt</strong> - Remote, UAE<br>October 2022 – December 2023</p>
+                <ul>
+                    <li>Developed Chatbots using RASA Framework</li>
+                    <li>Data Transformation Engine App</li>
+                    <li>Deployed multiple python apps on AWS, Azure, and GCP</li>
+                    <li>Maintained data pipelines on cloud services</li>
+                </ul>
+            </div>
+            <div class="box">
+                <h3>Machine Learning Engineer</h3>
+                <p><strong>QLU.ai</strong> - Islamabad, Pakistan<br>April 2021 – May 2022</p>
+                <ul>
+                    <li>Added intelligent machine learning components to the main product</li>
+                    <li>Trained ML and DL based NLP models</li>
+                    <li>Deployed ML models on the cloud</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="container">
+        <h1>Education</h1>
+        <div class="boxes">
+            <div class="box">
+                <h3>MS in Computer Science</h3>
+                <p><strong>National University of Sciences and Technology (NUST)</strong> - Islamabad, Pakistan<br>Sep 2019 – 2023<br>CGPA: 3.90</p>
+                <p>Core Courses: Advanced Algorithms Analysis, Mathematical Methods for Computing, Theory of Computation, Operating System</p>
+                <p>Elective Courses: Machine Learning, Deep Learning, Data Mining, Natural Language Processing (NLP)</p>
+            </div>
+            <div class="box">
+                <h3>M.Sc in Computer Science</h3>
+                <p><strong>University of Peshawar</strong> - Peshawar, Pakistan<br>Oct 2015 – Mar 2018<br>Marks: 80.58%</p>
+                <p>Courses: Data Structure, Algorithms, Databases, Networking, C++, E-Commerce, DLD, Software Engineering, Compiler, Artificial Intelligence, Operating System</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h1>Skills</h1>
+        <ul>
+            <li>Programming Languages and Frameworks: Python, Java, C++, Flask, Django</li>
+            <li>Machine Learning Libraries: PyTorch, Scikit-learn, NLTK, SciPy, Numpy, Pandas, TensorFlow, Keras, HuggingFace</li>
+            <li>Other Skills: Git, GitHub, GitLab, SQL, Linux</li>
+        </ul>
+    </section>
+
+    <section id="projects" class="container">
+        <h1>Projects</h1>
+        <ul>
+            <li>A Multiclass Multilabel Text Classification of Job Advertisement Messages - QLU.ai</li>
+            <li>Job Description Splitting into Sections - QLU.ai</li>
+            <li>Job Description Sections Classification - QLU.ai</li>
+            <li>Text Summarization, Paraphrasing, and Grammar Correction - QLU.ai</li>
+            <li>Conversational AI System (Chatbot) - RASA Framework</li>
+            <li>Pokemon Image Classification - Academic Project</li>
+            <li>Names Generation - Academic Project</li>
+            <li>Generating Meaningful Word Embeddings - Academic Project</li>
+            <li>Deployments of Services on Different Cloud Hostings - AWS, Azure, GCP</li>
+        </ul>
+    </section>
+
+    <section id="certifications" class="container">
+        <h1>Certifications</h1>
+        <ul>
+            <li>Natural Language Processing Specialization - Coursera</li>
+            <li>Introduction to Large Language Models - Coursera</li>
+            <li>Generative AI with Large Language Models - Coursera</li>
+            <li>Build Basic Generative Adversarial Networks (GANs) - Coursera</li>
+            <li>Introduction to Self-Driving Cars - Coursera</li>
+            <li>Python Essentials for MLOps - Coursera</li>
+            <li>AI For Everyone - Coursera</li>
+            <li>How Google does Machine Learning - Coursera</li>
+            <li>Artificial Intelligence on Microsoft Azure - Coursera</li>
+            <li>Introduction to Deep Learning - Coursera</li>
+            <li>Neural Networks and Deep Learning - Coursera</li>
+            <li>Supervised Machine Learning: Regression and Classification - Coursera</li>
+            <li>Mathematics for Machine Learning: Linear Algebra - Coursera</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="container">
+        <h1>Contact</h1>
+        <p>Email: <a href="mailto:shaidasherpao@gmail.com">shaidasherpao@gmail.com</a></p>
+        <p>Phone: +92-313-9190354</p>
+        <p>Location: Charsadda, Pakistan</p>
+        <p>LinkedIn: <a href="https://linkedin.com/in/shaidamuhammad" target="_blank">Shaida Muhammad</a></p>
+    </section>
+
+    <footer>
+        <p>Shaida Muhammad &copy; 2024</p>
+    </footer>
+</body>
+</html>
