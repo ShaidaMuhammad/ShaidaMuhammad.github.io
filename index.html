@@ -12,7 +12,7 @@
             background-color: #f4f4f4;
         }
         .container {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             overflow: hidden;
         }
@@ -56,11 +56,11 @@
             padding: 150px 20px;
         }
         section#showcase h1 {
-            font-size: 55px;
+            font-size: 36px;
             margin-top: 0;
         }
         section#showcase p {
-            font-size: 20px;
+            font-size: 18px;
         }
         section#about {
             padding: 20px;
@@ -71,8 +71,8 @@
             text-align: center;
         }
         .boxes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            display: flex;
+            flex-wrap: wrap;
             gap: 20px;
             padding: 20px;
         }
@@ -80,6 +80,9 @@
             background: #fff;
             padding: 20px;
             border: 1px solid #ddd;
+            flex: 1;
+            min-width: 250px;
+            box-sizing: border-box;
         }
         footer {
             background: #333;
@@ -118,6 +121,38 @@
             padding: 10px;
             cursor: pointer;
             margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            header #branding,
+            header nav {
+                float: none;
+                text-align: center;
+            }
+            header nav ul {
+                text-align: center;
+            }
+            header nav ul li {
+                float: none;
+                display: block;
+                padding: 10px 0;
+            }
+            section#showcase {
+                padding: 100px 20px;
+            }
+            section#showcase h1 {
+                font-size: 28px;
+            }
+            section#showcase p {
+                font-size: 16px;
+            }
+            .boxes {
+                flex-direction: column;
+                align-items: center;
+            }
+            .box {
+                width: 100%;
+                max-width: 400px;
+            }
         }
     </style>
 </head>
@@ -217,14 +252,14 @@
         <h1>Projects</h1>
         <ul>
             <li>
-                A Multiclass Multilabel Text Classification of Job Advertisement Messages - QLU.ai
+                A Multiclass Multilabel Text Classification of Job Descriptions - QLU.ai
                 <button class="toggle-btn" onclick="toggleDetails('project1')">Show Details</button>
-                <p id="project1" class="hidden">This project determines the quality of job advertisement messages using AI-based text assistance.</p>
+                <p id="project1" class="hidden">An NLP model that classifies job descriptions into multiple categories using advanced text classification techniques.</p>
             </li>
             <li>
-                Job Description Splitting into Sections - QLU.ai
+                Context Aware Content Recommender System - QLU.ai
                 <button class="toggle-btn" onclick="toggleDetails('project2')">Show Details</button>
-                <p id="project2" class="hidden">A hybrid algorithm to split job descriptions into logical sections, improving precision and recall of other components.</p>
+                <p id="project2" class="hidden">Developed a content recommender system that provides context-aware recommendations to users.</p>
             </li>
             <li>
                 Job Description Sections Classification - QLU.ai
