@@ -88,6 +88,37 @@
             padding: 30px;
             margin-top: 30px;
         }
+        #contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        #contact-form input, #contact-form textarea {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        #contact-form button {
+            padding: 10px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+        #contact-form button:hover {
+            background-color: #555;
+        }
+        .hidden {
+            display: none;
+        }
+        .toggle-btn {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -185,11 +216,31 @@
     <section id="projects" class="container">
         <h1>Projects</h1>
         <ul>
-            <li>A Multiclass Multilabel Text Classification of Job Advertisement Messages - QLU.ai</li>
-            <li>Job Description Splitting into Sections - QLU.ai</li>
-            <li>Job Description Sections Classification - QLU.ai</li>
-            <li>Text Summarization, Paraphrasing, and Grammar Correction - QLU.ai</li>
-            <li>Conversational AI System (Chatbot) - RASA Framework</li>
+            <li>
+                A Multiclass Multilabel Text Classification of Job Advertisement Messages - QLU.ai
+                <button class="toggle-btn" onclick="toggleDetails('project1')">Show Details</button>
+                <p id="project1" class="hidden">This project determines the quality of job advertisement messages using AI-based text assistance.</p>
+            </li>
+            <li>
+                Job Description Splitting into Sections - QLU.ai
+                <button class="toggle-btn" onclick="toggleDetails('project2')">Show Details</button>
+                <p id="project2" class="hidden">A hybrid algorithm to split job descriptions into logical sections, improving precision and recall of other components.</p>
+            </li>
+            <li>
+                Job Description Sections Classification - QLU.ai
+                <button class="toggle-btn" onclick="toggleDetails('project3')">Show Details</button>
+                <p id="project3" class="hidden">Classifies different sections of job descriptions to identify crucial information about the job.</p>
+            </li>
+            <li>
+                Text Summarization, Paraphrasing, and Grammar Correction - QLU.ai
+                <button class="toggle-btn" onclick="toggleDetails('project4')">Show Details</button>
+                <p id="project4" class="hidden">Developed various NLP models for text summarization, paraphrasing, and grammar correction using state-of-the-art techniques.</p>
+            </li>
+            <li>
+                Conversational AI System (Chatbot) - RASA Framework
+                <button class="toggle-btn" onclick="toggleDetails('project5')">Show Details</button>
+                <p id="project5" class="hidden">Developed an intelligent chatbot capable of engaging in meaningful conversations with users.</p>
+            </li>
             <li>Pokemon Image Classification - Academic Project</li>
             <li>Names Generation - Academic Project</li>
             <li>Generating Meaningful Word Embeddings - Academic Project</li>
@@ -218,6 +269,12 @@
 
     <section id="contact" class="container">
         <h1>Contact</h1>
+        <form id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
         <p>Email: <a href="mailto:shaidasherpao@gmail.com">shaidasherpao@gmail.com</a></p>
         <p>Phone: +92-313-9190354</p>
         <p>Location: Charsadda, Pakistan</p>
@@ -227,5 +284,43 @@
     <footer>
         <p>Shaida Muhammad &copy; 2024</p>
     </footer>
+
+    <script>
+        // Smooth Scroll
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Toggle Project Details
+        function toggleDetails(id) {
+            var element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        // Contact Form Validation
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            
+            if (name === '' || email === '' || message === '') {
+                alert('Please fill in all fields');
+            } else {
+                alert('Thank you for your message, ' + name + '!');
+                // Here, you can add the code to send the form data to your email or server
+                document.getElementById('contact-form').reset();
+            }
+        });
+    </script>
 </body>
 </html>
