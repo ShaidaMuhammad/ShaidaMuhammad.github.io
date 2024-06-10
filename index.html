@@ -304,12 +304,6 @@
 
     <section id="contact" class="container">
         <h1>Contact</h1>
-        <form id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
-            <textarea id="message" placeholder="Your Message" required></textarea>
-            <button type="submit">Send</button>
-        </form>
         <p>Email: <a href="mailto:shaidasherpao@gmail.com">shaidasherpao@gmail.com</a></p>
         <p>Phone: +92-313-9190354</p>
         <p>Location: Charsadda, Pakistan</p>
@@ -319,6 +313,26 @@
     <footer>
         <p>Shaida Muhammad &copy; 2024</p>
     </footer>
+
+    <button class="toggle-btn" id="scrollToTopBtn">Scroll to Top</button>
+
+    <script>
+        // Smooth Scroll to Top
+        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        window.addEventListener("scroll", () => {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        });
+
+        scrollToTopBtn.addEventListener("click", () => {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        });
+    </script>
 
     <script>
         // Smooth Scroll
