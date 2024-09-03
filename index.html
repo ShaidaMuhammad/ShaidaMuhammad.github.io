@@ -4,84 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shaida Muhammad - Sr. Machine Learning Engineer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
         }
-        .container {
-            width: 90%;
-            margin: 0 auto;
-            overflow: hidden;
+        .navbar {
+            background-color: #333;
         }
-        header {
-            background: #333;
+        .navbar-brand, .navbar-nav .nav-link {
             color: #fff;
-            padding-top: 30px;
-            min-height: 70px;
-            border-bottom: #77d4d8 3px solid;
         }
-        header a {
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            font-size: 16px;
+        .navbar-brand:hover, .navbar-nav .nav-link:hover {
+            color: #77d4d8;
         }
-        header ul {
-            padding: 0;
-            list-style: none;
-        }
-        header li {
-            float: left;
-            display: inline;
-            padding: 0 20px 0 20px;
-        }
-        header #branding {
-            float: left;
-        }
-        header #branding h1 {
-            margin: 0;
-        }
-        header nav {
-            float: right;
-            margin-top: 10px;
-        }
-        section#showcase {
-            min-height: 400px;
+        .showcase {
             background: #333;
             color: #fff;
             text-align: center;
             padding: 150px 20px;
+            margin-bottom: 30px;
         }
-        section#showcase h1 {
-            font-size: 36px;
-            margin-top: 0;
+        .showcase h1 {
+            font-size: 3rem;
         }
-        section#showcase p {
-            font-size: 18px;
+        .showcase p {
+            font-size: 1.5rem;
         }
-        section#about {
-            padding: 20px;
-            background: #fff;
-            color: #333;
-        }
-        section#about h1 {
+        .section-title {
             text-align: center;
-        }
-        .boxes {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding: 20px;
+            margin-bottom: 30px;
+            color: #333;
         }
         .box {
             background: #fff;
             padding: 20px;
             border: 1px solid #ddd;
-            flex: 1;
-            min-width: 250px;
+            margin-bottom: 20px;
             box-sizing: border-box;
         }
         footer {
@@ -91,229 +52,182 @@
             padding: 30px;
             margin-top: 30px;
         }
-        #contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        #contact-form input, #contact-form textarea {
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-        #contact-form button {
-            padding: 10px;
-            border: none;
-            background-color: #333;
-            color: #fff;
-            cursor: pointer;
-        }
-        #contact-form button:hover {
-            background-color: #555;
-        }
-        .hidden {
-            display: none;
-        }
-        .toggle-btn {
-            background-color: #333;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
         #scrollToTopBtn {
             position: fixed;
             bottom: 20px;
             right: 20px;
-            display: none; /* Initially hide the button */
-            z-index: 999; /* Ensure the button stays on top of other elements */
+            display: none;
+            z-index: 999;
         }
         @media (max-width: 768px) {
-            header #branding,
-            header nav {
-                float: none;
-                text-align: center;
+            .showcase h1 {
+                font-size: 2.5rem;
             }
-            header nav ul {
-                text-align: center;
-            }
-            header nav ul li {
-                float: none;
-                display: block;
-                padding: 10px 0;
-            }
-            section#showcase {
-                padding: 100px 20px;
-            }
-            section#showcase h1 {
-                font-size: 28px;
-            }
-            section#showcase p {
-                font-size: 16px;
-            }
-            .boxes {
-                flex-direction: column;
-                align-items: center;
-            }
-            .box {
-                width: 100%;
-                max-width: 400px;
+            .showcase p {
+                font-size: 1.25rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div id="branding">
-                <h1>Shaida Muhammad</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#about">About Me</a></li>
-                    <li><a href="#work">Work Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section id="showcase">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Shaida Muhammad</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About Me</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Work Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#awards">Awards</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Showcase -->
+    <section class="showcase">
         <div class="container">
             <h1>Welcome to My Personal Webpage</h1>
             <p>Senior Machine Learning Engineer specializing in NLP and AI</p>
         </div>
     </section>
 
+    <!-- About Me -->
     <section id="about" class="container">
-        <h1>About Me</h1>
-        <p>Hi, I'm Shaida Muhammad, a Senior Machine Learning Engineer currently working at Love For Data in Karachi, Pakistan. I specialize in Natural Language Processing, text classification, and the deployment of machine learning models on cloud platforms. With a strong educational background and extensive experience in various machine learning frameworks, I am passionate about developing innovative AI solutions.</p>
+        <h2 class="section-title">About Me</h2>
+        <div class="box">
+            <p>I am a dedicated and analytical Machine Learning Engineer with extensive experience in developing and deploying NLP and classification models. My background includes hands-on work with sentiment analysis, text classification, and large language models (LLMs) such as Meta LLAMA-2 and Phi-3.5. I possess a strong foundation in data engineering and machine learning, demonstrated through various projects involving text summarization, classification, and conversational AI. I am committed to continuous learning and thrive in collaborative environments.</p>
+        </div>
     </section>
 
+    <!-- Work Experience -->
     <section id="work" class="container">
-        <h1>Work Experience</h1>
-        <div class="boxes">
-            <div class="box">
-                <h3>Sr. Machine Learning Engineer</h3>
-                <p><strong>Love For Data</strong> - Karachi, Pakistan<br>January 2024 – Present</p>
-                <ul>
-                    <li>Working on Large Language Models (LLMs)</li>
-                    <li>Summarization and information extraction with LLAMA-2</li>
-                    <li>Text classification with HuggingFace transformers</li>
-                </ul>
-            </div>
-            <div class="box">
-                <h3>Machine Learning Engineer</h3>
-                <p><strong>Datacrypt</strong> - Remote, UAE<br>October 2022 – December 2023</p>
-                <ul>
-                    <li>Developed Chatbots using RASA Framework</li>
-                    <li>Data Transformation Engine App</li>
-                    <li>Deployed multiple python apps on AWS, Azure, and GCP</li>
-                    <li>Maintained data pipelines on cloud services</li>
-                </ul>
-            </div>
-            <div class="box">
-                <h3>Machine Learning Engineer</h3>
-                <p><strong>QLU.ai</strong> - Islamabad, Pakistan<br>April 2021 – May 2022</p>
-                <ul>
-                    <li>Added intelligent machine learning components to the main product</li>
-                    <li>Trained ML and DL based NLP models</li>
-                    <li>Deployed ML models on the cloud</li>
-                </ul>
-            </div>
+        <h2 class="section-title">Work Experience</h2>
+        <div class="box">
+            <h3>Sr. Machine Learning Engineer - Love For Data</h3>
+            <p>January 2024 – June 2024 | Rawalpindi, Pakistan</p>
+            <ul>
+                <li>Worked on Large Language Models (LLMs) for text summarization and information extraction, enhancing content comprehension.</li>
+                <li>Implemented text classification models using HuggingFace transformers (BERT, RoBERTa) to analyze textual data.</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>Machine Learning Engineer - Datacrypt</h3>
+            <p>October 2022 – December 2023 | Remote, UAE</p>
+            <ul>
+                <li>Developed intelligent chatbots using the RASA Framework, improving user interaction.</li>
+                <li>Designed and maintained data automation pipelines, ensuring efficient data handling and processing.</li>
+                <li>Deployed multiple machine learning applications on AWS, Azure, and GCP.</li>
+            </ul>
+        </div>
+        <div class="box">
+            <h3>Machine Learning Engineer - QLU.ai</h3>
+            <p>April 2021 – May 2022 | Islamabad, Pakistan</p>
+            <ul>
+                <li>Enhanced the company’s product with machine learning-based components, focusing on NLP for better user engagement.</li>
+                <li>Trained and deployed NLP models for text classification and analysis.</li>
+            </ul>
         </div>
     </section>
 
+    <!-- Education -->
     <section id="education" class="container">
-        <h1>Education</h1>
-        <div class="boxes">
-            <div class="box">
-                <h3>MS in Computer Science</h3>
-                <p><strong>National University of Sciences and Technology (NUST)</strong> - Islamabad, Pakistan<br>Sep 2019 – 2023<br>CGPA: 3.90</p>
-                <p>Core Courses: Advanced Algorithms Analysis, Mathematical Methods for Computing, Theory of Computation, Operating System</p>
-                <p>Elective Courses: Machine Learning, Deep Learning, Data Mining, Natural Language Processing (NLP)</p>
-            </div>
-            <div class="box">
-                <h3>M.Sc in Computer Science</h3>
-                <p><strong>University of Peshawar</strong> - Peshawar, Pakistan<br>Oct 2015 – Mar 2018<br>Marks: 80.58%</p>
-                <p>Courses: Data Structure, Algorithms, Databases, Networking, C++, E-Commerce, DLD, Software Engineering, Compiler, Artificial Intelligence, Operating System</p>
-            </div>
+        <h2 class="section-title">Education</h2>
+        <div class="box">
+            <h3>MS in Computer Science - NUST</h3>
+            <p>Sep 2019 – 2023 | Islamabad, Pakistan | CGPA: 3.90</p>
+            <p>Core Courses: Advanced Algorithms Analysis, Mathematical Methods for Computing, Theory of Computation, Operating Systems</p>
+            <p>Elective Courses: Machine Learning, Deep Learning, Data Mining, NLP</p>
+        </div>
+        <div class="box">
+            <h3>M.Sc in Computer Science - University of Peshawar</h3>
+            <p>Oct 2015 – Mar 2018 | Peshawar, Pakistan | Marks: 80.58%</p>
+            <p>Courses: Data Structures, Algorithms, Databases, Networking, C++, Software Engineering, Artificial Intelligence</p>
         </div>
     </section>
 
+    <!-- Skills -->
     <section id="skills" class="container">
-        <h1>Skills</h1>
-        <ul>
-            <li>Programming Languages and Frameworks: Python, Java, C++, Flask, Django</li>
-            <li>Machine Learning Libraries: PyTorch, Scikit-learn, NLTK, SciPy, Numpy, Pandas, TensorFlow, Keras, HuggingFace</li>
-            <li>Other Skills: Git, GitHub, GitLab, SQL, Linux</li>
+        <h2 class="section-title">Skills</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Programming Languages and Frameworks: Python, Java, C++, Flask, Django, FastAPI</li>
+            <li class="list-group-item">Machine Learning Libraries: PyTorch, Scikit-learn, NLTK, SciPy, Numpy, Pandas, TensorFlow, Keras, HuggingFace</li>
+            <li class="list-group-item">Other Skills: Git, GitHub, GitLab, SQL, Linux</li>
         </ul>
     </section>
 
+    <!-- Projects -->
     <section id="projects" class="container">
-        <h1>Projects</h1>
-        <ul>
-            <li>
-                A Multiclass Multilabel Text Classification of Job Descriptions - QLU.ai
-                <button class="toggle-btn" onclick="toggleDetails('project1')">Show Details</button>
-                <p id="project1" class="hidden">An NLP model that classifies job descriptions into multiple categories using advanced text classification techniques.</p>
-            </li>
-            <li>
-                Context Aware Content Recommender System - QLU.ai
-                <button class="toggle-btn" onclick="toggleDetails('project2')">Show Details</button>
-                <p id="project2" class="hidden">Developed a content recommender system that provides context-aware recommendations to users.</p>
-            </li>
-            <li>
-                Job Description Sections Classification - QLU.ai
-                <button class="toggle-btn" onclick="toggleDetails('project3')">Show Details</button>
-                <p id="project3" class="hidden">Classifies different sections of job descriptions to identify crucial information about the job.</p>
-            </li>
-            <li>
-                Text Summarization, Paraphrasing, and Grammar Correction - QLU.ai
-                <button class="toggle-btn" onclick="toggleDetails('project4')">Show Details</button>
-                <p id="project4" class="hidden">Developed various NLP models for text summarization, paraphrasing, and grammar correction using state-of-the-art techniques.</p>
-            </li>
-            <li>
-                Conversational AI System (Chatbot) - RASA Framework
-                <button class="toggle-btn" onclick="toggleDetails('project5')">Show Details</button>
-                <p id="project5" class="hidden">Developed an intelligent chatbot capable of engaging in meaningful conversations with users.</p>
-            </li>
-            <li>Pokemon Image Classification - Academic Project</li>
-            <li>Names Generation - Academic Project</li>
-            <li>Generating Meaningful Word Embeddings - Academic Project</li>
-            <li>Deployments of Services on Different Cloud Hostings - AWS, Azure, GCP</li>
-        </ul>
+        <h2 class="section-title">Projects</h2>
+        <div class="box">
+            <h4>Voice-Based AI Assistant for Elderly</h4>
+            <p>Developed a voice-based AI assistant system designed to support elderly individuals by answering queries related to their health, medicines, and other relevant topics.</p>
+        </div>
+        <div class="box">
+            <h4>Document Summarization System</h4>
+            <p>Developed an advanced document summarization system using Meta LLAMA-2 integrated into a Django-based web app.</p>
+        </div>
+        <div class="box">
+            <h4>Domain Classification System</h4>
+            <p>Developed a domain classification system for a complex document dataset with nearly 100 domains.</p>
+        </div>
+        <div class="box">
+            <h4>Sentiment Analysis System</h4>
+            <p>Developed a sentiment analysis model to classify paragraphs within documents into various categories.</p>
+        </div>
+        <!-- Add additional projects here -->
     </section>
 
+    <!-- Certifications -->
     <section id="certifications" class="container">
-        <h1>Certifications</h1>
-        <ul>
-            <li>Natural Language Processing Specialization - Coursera</li>
-            <li>Introduction to Large Language Models - Coursera</li>
-            <li>Generative AI with Large Language Models - Coursera</li>
-            <li>Build Basic Generative Adversarial Networks (GANs) - Coursera</li>
-            <li>Introduction to Self-Driving Cars - Coursera</li>
-            <li>Python Essentials for MLOps - Coursera</li>
-            <li>AI For Everyone - Coursera</li>
-            <li>How Google does Machine Learning - Coursera</li>
-            <li>Artificial Intelligence on Microsoft Azure - Coursera</li>
-            <li>Introduction to Deep Learning - Coursera</li>
-            <li>Neural Networks and Deep Learning - Coursera</li>
-            <li>Supervised Machine Learning: Regression and Classification - Coursera</li>
-            <li>Mathematics for Machine Learning: Linear Algebra - Coursera</li>
+        <h2 class="section-title">Certifications</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Natural Language Processing Specialization - Coursera</li>
+            <li class="list-group-item">Introduction to Large Language Models - Coursera</li>
+            <li class="list-group-item">Generative AI with Large Language Models - Coursera</li>
+            <!-- Add additional certifications here -->
         </ul>
     </section>
 
+    <!-- Publications -->
+    <section id="publications" class="container">
+        <h2 class="section-title">Research Publications</h2>
+        <div class="box">
+            <h4>Enhanced Human Activity Recognition using Inertial Sensor Data from Smart Wearables</h4>
+            <p>A Neural Network Approach with Residual Connections —– Published</p>
+        </div>
+        <div class="box">
+            <h4>Mukhtasir-Khail-Net: An Ultra Efficient Convolutional Neural Network</h4>
+            <p>For Sports Activity Recognition with Wearable Inertial Sensors —– Accepted</p>
+        </div>
+        <!-- Add additional publications here -->
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="container">
+        <h2 class="section-title">Awards</h2>
+        <ul class="list-group">
+            <li class="list-group-item">Stoori da Pakhtunkhwa (Stars of the Pukhtunkhwa) Scholarship</li>
+            <li class="list-group-item">Top 1% in GAT General Test</li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
     <section id="contact" class="container">
-        <h1>Contact</h1>
+        <h2 class="section-title">Contact</h2>
         <p>Email: <a href="mailto:shaidasherpao@gmail.com">shaidasherpao@gmail.com</a></p>
         <p>Phone: +92-313-9190354</p>
-        <p>Location: Charsadda, Pakistan</p>
+        <p>Location: Islamabad, Pakistan</p>
         <p>LinkedIn: <a href="https://linkedin.com/in/shaidamuhammad" target="_blank">Shaida Muhammad</a></p>
     </section>
 
@@ -321,8 +235,15 @@
         <p>Shaida Muhammad &copy; 2024</p>
     </footer>
 
-    <button class="toggle-btn" id="scrollToTopBtn">Scroll to Top</button>
+    <!-- Scroll to Top Button -->
+    <button class="btn btn-dark" id="scrollToTopBtn">Scroll to Top</button>
 
+    <!-- Bootstrap and JQuery Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Custom Scripts -->
     <script>
         // Smooth Scroll to Top
         const scrollToTopBtn = document.getElementById("scrollToTopBtn");
@@ -339,10 +260,8 @@
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         });
-    </script>
 
-    <script>
-        // Smooth Scroll
+        // Smooth Scroll for Navigation Links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -350,32 +269,6 @@
                     behavior: 'smooth'
                 });
             });
-        });
-
-        // Toggle Project Details
-        function toggleDetails(id) {
-            var element = document.getElementById(id);
-            if (element.classList.contains('hidden')) {
-                element.classList.remove('hidden');
-            } else {
-                element.classList.add('hidden');
-            }
-        }
-
-        // Contact Form Validation
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name === '' || email === '' || message === '') {
-                alert('Please fill in all fields');
-            } else {
-                alert('Thank you for your message, ' + name + '!');
-                // Here, you can add the code to send the form data to your email or server
-                document.getElementById('contact-form').reset();
-            }
         });
     </script>
 </body>
