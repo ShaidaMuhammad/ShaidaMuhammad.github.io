@@ -567,7 +567,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1 style="color: blue;">Shaida Muhammad</h1>
+            <h1>Shaida Muhammad</h1>
             <h2>Machine Learning Engineer</h2>
             <div class="contact-info">
                 <a href="mailto:shaidasherpao@gmail.com"><i class="fas fa-envelope"></i> shaidasherpao@gmail.com</a>
@@ -921,7 +921,6 @@
             <h2 class="section-title">Certifications</h2>
             <div class="certifications-list">
                 <h3 style="margin-bottom: 1rem;">Coursera Certifications</h3>
-
                 <div class="certification-item">
                     <p>Natural Language Processing Specialization on Coursera [L9XZX72XDF2A]</p>
                 </div>
@@ -979,5 +978,96 @@
             </div>
         </div>
     </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+                <p>I'm currently looking for new opportunities in machine learning and NLP. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+                <div style="margin: 2rem 0;">
+                    <a href="mailto:shaidasherpao@gmail.com" class="btn" style="margin-right: 1rem;">
+                        <i class="fas fa-envelope"></i> Email Me
+                    </a>
+                    <a href="https://www.linkedin.com/in/shaidamuhammad" target="_blank" class="btn" style="background-color: #0077b5;">
+                        <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#about">About</a>
+                <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <p class="copyright">© 2025 Shaida Muhammad. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('active');
+            } else {
+                backToTopButton.classList.remove('active');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
