@@ -7,15 +7,19 @@
     <meta name="author" content="Shaida Muhammad Sherpao">
     <meta name="description" content="Shaida Muhammad Sherpao is a Machine Learning Engineer in Islamabad, Pakistan, specializing in AI, deep learning, NLP, LLMs, transformers, text classification, and production ML systems. Explore projects, research publications, experience, and CV.">
     <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://shaidamuhammad.github.io/">
     <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://shaidamuhammad.github.io/">
+    <meta property="og:site_name" content="Shaida Muhammad Sherpao — AI &amp; Machine Learning Portfolio">
     <meta property="og:title" content="Shaida Muhammad Sherpao | Machine Learning Engineer, AI & Deep Learning">
     <meta property="og:description" content="Explore the AI, machine learning, deep learning, NLP, LLM, cloud deployment projects, and research publications of Shaida Muhammad Sherpao.">
-    <meta property="og:image" content="images/shaida-muhammad-sherpao.jpg">
+    <meta property="og:image" content="https://shaidamuhammad.github.io/images/shaida-muhammad-sherpao.jpg">
     <meta property="og:image:alt" content="Professional portrait of Shaida Muhammad Sherpao">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Shaida Muhammad Sherpao | Machine Learning Engineer">
     <meta name="twitter:description" content="Machine Learning Engineer specializing in AI, deep learning, NLP, LLMs, and production ML systems.">
-    <meta name="twitter:image" content="images/shaida-muhammad-sherpao.jpg">
+    <meta name="twitter:image" content="https://shaidamuhammad.github.io/images/shaida-muhammad-sherpao.jpg">
+    <meta name="twitter:image:alt" content="Professional portrait of Shaida Muhammad Sherpao">
     <title>Shaida Muhammad Sherpao | Machine Learning Engineer, AI & Deep Learning</title>
     <link rel="me" href="https://www.linkedin.com/in/shaidamuhammad">
     <link rel="me" href="https://github.com/ShaidaMuhammad">
@@ -26,10 +30,12 @@
       "@type": "Person",
       "name": "Shaida Muhammad Sherpao",
       "alternateName": ["Shaida Muhammad", "Shaida Sherpao", "Shaida Muhammad Sherpao"],
-      "jobTitle": "Machine Learning Engineer",
+      "url": "https://shaidamuhammad.github.io/",
+      "mainEntityOfPage": "https://shaidamuhammad.github.io/",
+      "jobTitle": ["Machine Learning Engineer", "AI Engineer", "Deep Learning Engineer", "NLP Engineer"],
       "description": "Machine Learning Engineer specializing in artificial intelligence, deep learning, natural language processing, large language models, text classification, sentiment analysis, data engineering, and cloud ML deployment.",
       "email": "shaidasherpao@gmail.com",
-      "image": "images/shaida-muhammad-sherpao.jpg",
+      "image": "https://shaidamuhammad.github.io/images/shaida-muhammad-sherpao.jpg",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Islamabad",
@@ -148,7 +154,7 @@
         .hero-copy { min-width: 0; }
         .hero-portrait-wrap { position: relative; justify-self: center; width: min(100%, 330px); }
         .hero-portrait-wrap::before { content: ""; position: absolute; inset: 8% -7% -5% 8%; border: 1px solid rgba(140,235,221,.48); border-radius: 38% 38% 24px 24px; transform: rotate(5deg); }
-        .hero-portrait { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1.12; object-fit: cover; object-position: center 24%; border: 5px solid rgba(255,255,255,.9); border-radius: 38% 38% 24px 24px; box-shadow: 0 24px 65px rgba(0,0,0,.3); background: #08a9e8; }
+        .hero-portrait { position: relative; display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; object-position: center center; border: 5px solid rgba(255,255,255,.9); border-radius: 38% 38% 24px 24px; box-shadow: 0 24px 65px rgba(0,0,0,.3); background: #08a9e8; }
         .portrait-caption { position: absolute; right: -18px; bottom: 22px; max-width: 190px; padding: .85rem 1rem; color: #fff; background: rgba(24,31,61,.88); border: 1px solid rgba(255,255,255,.18); border-radius: 14px; box-shadow: 0 12px 30px rgba(0,0,0,.2); backdrop-filter: blur(12px); font-size: .82rem; line-height: 1.4; }
         .portrait-caption strong { display: block; color: #8cebdd; font-size: .9rem; margin-bottom: .15rem; }
         .hero-kicker { display: inline-flex; align-items: center; gap: .6rem; margin: 0 0 1.35rem; color: #a5f1e5; font-size: .82rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
@@ -229,6 +235,14 @@
         .publication-title { display: flex; align-items: flex-start; gap: .8rem; margin: 0; color: var(--ink); font-size: 1.02rem; font-weight: 750; line-height: 1.55; letter-spacing: -.015em; }
         .publication-title a { color: var(--ink); text-decoration: underline; text-decoration-color: color-mix(in srgb, var(--primary) 42%, transparent); text-underline-offset: 4px; }
         .publication-title a:hover { color: var(--primary); }
+        .publication-meta { margin: .75rem 0 .35rem; color: var(--medium); font-size: .9rem; line-height: 1.6; }
+        .publication-meta a { text-decoration: underline; text-underline-offset: 3px; }
+        .publication-authors { margin: .35rem 0 .55rem; color: var(--medium); font-size: .9rem; }
+        .publication-details { margin-top: .85rem; border-top: 1px solid var(--line); padding-top: .7rem; color: var(--medium); font-size: .9rem; }
+        .publication-details summary { color: var(--primary); font-weight: 750; cursor: pointer; }
+        .publication-details summary:focus-visible { outline: 3px solid rgba(91, 92, 240, .48); outline-offset: 4px; border-radius: 4px; }
+        .publication-details p { margin: .75rem 0; }
+        .publication-keywords { font-size: .84rem; }
         .publication-status { display: inline-flex; flex: 0 0 auto; margin: .12rem 0 0; padding: .28rem .58rem; border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line)); border-radius: 999px; color: #087d6e; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); font-size: .7rem; font-weight: 800; white-space: nowrap; }
         .awards-list, .certifications-list { max-width: 960px; margin: 0 auto; }
         .award-title, .certification-title { margin: 0 0 .45rem; color: var(--ink); font-size: 1.06rem; font-weight: 800; letter-spacing: -.025em; }
@@ -305,6 +319,7 @@
             .hero { min-height: auto; padding: calc(var(--header-height) + 40px) 0 56px; }
             .hero .container { grid-template-columns: 1fr; gap: 2rem; }
             .hero-portrait-wrap { grid-row: 1; width: min(62%, 230px); margin-bottom: .5rem; }
+            .hero-portrait { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
             .hero-copy { grid-row: 2; }
             .portrait-caption { right: -10px; bottom: 12px; }
             .hero h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
@@ -382,7 +397,7 @@
         <div class="container">
             <div class="hero-copy">
                 <p class="hero-kicker">Machine Learning · AI · Deep Learning · NLP</p>
-                <h1 id="page-title">Shaida Muhammad</h1>
+                <h1 id="page-title">Shaida Muhammad Sherpao</h1>
                 <h2>Machine Learning Engineer | AI &amp; Deep Learning Engineer</h2>
                 <p class="hero-summary">I build practical machine learning and AI systems, with experience in natural language processing, large language models, transformer-based classification, data pipelines, and cloud deployment. Explore my professional experience, projects, publications, teaching, and credentials.</p>
                 <div class="contact-info">
@@ -409,7 +424,7 @@
         <div class="container">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
-                <p><strong>Shaida Muhammad</strong> is a Machine Learning Engineer focused on artificial intelligence, deep learning, natural language processing (NLP), generative AI, and large language models (LLMs). My work spans transformer models, text classification, sentiment analysis, document summarization, conversational AI, data engineering, and cloud-based ML deployment.</p>
+                <p><strong>Shaida Muhammad Sherpao (also known as Shaida Muhammad)</strong> is a Machine Learning Engineer focused on artificial intelligence, deep learning, natural language processing (NLP), generative AI, and large language models (LLMs). My work spans transformer models, text classification, sentiment analysis, document summarization, conversational AI, data engineering, and cloud-based ML deployment.</p>
                 <p>I am a dedicated and analytical Machine Learning Engineer with extensive experience in developing and deploying NLP and classification models. My background includes hands-on work with sentiment analysis, text classification, and large language models (LLMs), such as Meta LLAMA-2 and Phi-3.5, all of which are crucial for understanding and analyzing data.</p>
                 <p>I possess a strong foundation in data engineering and machine learning, demonstrated through various projects involving text summarization, classification, and conversational AI. My expertise in leveraging transformer-based models allows me to extract meaningful insights from complex data sets.</p>
                 <p>I am committed to continuous learning and staying updated with the latest research in machine learning. I thrive in collaborative environments and am eager to contribute to projects that require technical proficiency and innovation.</p>
@@ -787,13 +802,23 @@
                 </h4>
             </div>
 
+            
             <div class="publication-item">
                 <h4 class="publication-title">
-                    <a href="#" target="_blank" rel="noopener noreferrer">Machine Learning Approaches for Forecasting the Strength of Concrete Incorporating Fly Ash and Marble Slurry Waste</a>
-                    <span class="publication-status">Accepted</span>
+                    <a href="https://icaad.selcuk.edu.tr/en/program/" target="_blank" rel="noopener noreferrer">Metaheuristic-Optimized Support Vector Regression as a Real-Time Surrogate for Ship–Bridge Pier Collision Demand</a>
+                    <span class="publication-status">Accepted · Presentation scheduled</span>
                 </h4>
+                <p class="publication-meta"><strong>International Conference on AI Across Disciplines (ICAAD 2026)</strong> · Paper ID 164 · Science &amp; Engineering · Oral presentation (online)</p>
+                <p class="publication-authors"><strong>Authors:</strong> Muhammad Shahid Khan, Muhammad Khubaib (presenter), Shaida Muhammad, Hammad Ahmad, and Muhammad Shahzad.</p>
+                <p class="publication-meta"><strong>Scheduled session:</strong> Saturday, 24 October 2026 · 11:00–12:30 (GMT+3) · Virtual Room 2, Session 1. <a href="https://icaad.selcuk.edu.tr/en/program/" target="_blank" rel="noopener noreferrer">View official conference programme</a>.</p>
+                <p class="publication-meta"><strong>Research areas:</strong> Data Science &amp; Big Data Analytics; Smart Systems &amp; Autonomous Technologies. <strong>Publication:</strong> Accepted for conference presentation; full-text collection is planned after the conference and publication details are pending.</p>
+                <details class="publication-details">
+                    <summary>Read abstract and keywords</summary>
+                    <p>Ship–bridge pier collisions threaten navigable-waterway infrastructure worldwide, yet the finite element models used to quantify their consequences are too computationally expensive for real-time deployment in vessel traffic services. This study develops and benchmarks metaheuristic-optimized surrogate models that reproduce collision demand at negligible computational cost. A parametric dataset of 50,000 collision scenarios was generated across six governing variables: vessel tonnage (10,000–50,000 t), impact velocity (5–20 m/s), collision angle (10–80°), current velocity (0.5–3.0 m/s), pier diameter (3–5 m), and pier height (10–30 m). Four demand measures were computed for each scenario: peak impact force, absorbed energy, peak pier stress, and a normalized response ratio. Support Vector Regression was hyperparameter-tuned using three nature-inspired optimizers, the Firefly Algorithm, Grey Wolf Optimization, and Particle Swarm Optimization, and benchmarked against Decision Tree and Random Forest baselines using R², MAE, RMSE, and MAPE under five-fold cross-validation. Sensitivity analysis identified impact velocity and vessel tonnage as the dominant predictors of response ratio, while pier height showed negligible influence. The resulting surrogate evaluates a collision scenario in under a millisecond, supporting its integration into vessel traffic management systems and construction-phase bridge monitoring as a near-real-time screening tool.</p>
+                    <p class="publication-keywords"><strong>Keywords:</strong> ship–bridge pier collision; surrogate modelling; support vector regression; metaheuristic optimization; maritime accident analysis; decision support systems.</p>
+                </details>
             </div>
-            
+
             <h3 style="margin: 2rem 0 1rem;">Journal Papers</h3>
             <div class="publication-item">
                 <h4 class="publication-title">
@@ -807,6 +832,19 @@
                     <span class="publication-status">Published</span>
                 </h4>
             </div>
+
+            <h3 style="margin: 2rem 0 1rem;">Book Chapters</h3>
+            <div class="publication-item">
+                <h4 class="publication-title">
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-95-7766-8_1" target="_blank" rel="noopener noreferrer">Machine Learning for Sustainable Concrete: Predictive Approaches Using Industrial Waste Materials</a>
+                    <span class="publication-status">Published · Book chapter</span>
+                </h4>
+                <p class="publication-meta"><strong>In:</strong> <a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer"><em>Intelligent Predictive Systems: AI and Machine Learning in Engineering</em></a> · Emerging Trends in Mechatronics · Springer Nature Singapore · pp. 1–28 · First online: 2 July 2026.</p>
+                <p class="publication-authors"><strong>Authors:</strong> Muhammad Shahid Khan, Muhammad Khubaib, and Shaida Muhammad.</p>
+                <p class="publication-meta">This chapter applies machine learning models including Decision Tree, Random Forest, CatBoost, XGBoost, and LightGBM to forecast concrete compressive strength incorporating fly ash and marble cutting slurry waste, using SHAP to help interpret model predictions.</p>
+                <p class="publication-meta"><a href="https://link.springer.com/chapter/10.1007/978-981-95-7766-8_1" target="_blank" rel="noopener noreferrer">Read chapter on Springer</a> · <a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer">View the complete book</a>.</p>
+            </div>
+
         </div>
     </section>
 
