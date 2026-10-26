@@ -244,6 +244,8 @@
         .publication-details p { margin: .75rem 0; }
         .publication-keywords { font-size: .84rem; }
         .publication-status { display: inline-flex; flex: 0 0 auto; margin: .12rem 0 0; padding: .28rem .58rem; border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line)); border-radius: 999px; color: #087d6e; background: color-mix(in srgb, var(--accent) 10%, var(--surface)); font-size: .7rem; font-weight: 800; white-space: nowrap; }
+        .publication-status--pending { color: #8a5a08; border-color: #ead8a9; background: #fff7df; white-space: normal; }
+        body.dark-mode .publication-status--pending { color: #f6d58b; border-color: #66552e; background: #302817; }
         .awards-list, .certifications-list { max-width: 960px; margin: 0 auto; }
         .award-title, .certification-title { margin: 0 0 .45rem; color: var(--ink); font-size: 1.06rem; font-weight: 800; letter-spacing: -.025em; }
         .award-org, .certification-org { margin-bottom: .55rem; color: var(--primary); font-size: .9rem; font-weight: 750; }
@@ -252,9 +254,25 @@
         .certification-item::before { content: "\f559"; flex: 0 0 auto; display: grid; place-items: center; width: 35px; height: 35px; border-radius: 10px; color: var(--primary); background: color-mix(in srgb, var(--primary) 9%, var(--surface)); font-family: "Font Awesome 6 Free"; font-weight: 900; }
         .certification-item p { margin: 0; }
 
-        /* Contact + footer */
-        #contact .container > div[style*="text-align: center"] { max-width: 700px !important; padding: clamp(1.4rem, 4vw, 2.4rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-        #contact .container > div[style*="text-align: center"] > p { color: var(--medium); font-size: 1.04rem; }
+        /* Contact form + footer */
+        .contact-layout { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 1.25rem; max-width: 1040px; margin: 0 auto; align-items: stretch; }
+        .contact-panel { min-width: 0; padding: clamp(1.3rem, 3vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+        .contact-panel h3 { margin: 0 0 .75rem; color: var(--ink); font-size: 1.22rem; letter-spacing: -.025em; }
+        .contact-panel p { color: var(--medium); }
+        .contact-options { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.35rem; }
+        .contact-options .btn { min-width: 0; }
+        .contact-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+        .form-field { display: flex; flex-direction: column; gap: .42rem; min-width: 0; }
+        .form-field--full { grid-column: 1 / -1; }
+        .form-field label { color: var(--ink); font-size: .9rem; font-weight: 750; }
+        .form-field input, .form-field textarea { width: 100%; min-width: 0; padding: .82rem .9rem; border: 1px solid var(--line); border-radius: 11px; color: var(--ink); background: var(--page); font: inherit; line-height: 1.5; transition: border-color var(--transition), box-shadow var(--transition); }
+        .form-field textarea { min-height: 150px; resize: vertical; }
+        .form-field input:focus, .form-field textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent); }
+        .contact-form .btn { justify-self: start; border: 0; cursor: pointer; }
+        .form-note { margin: .85rem 0 0; color: var(--muted); font-size: .8rem; line-height: 1.55; }
+        .form-honeypot { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
+        @media (max-width: 700px) { .contact-layout { grid-template-columns: 1fr; } }
+        @media (max-width: 480px) { .contact-form { grid-template-columns: 1fr; } .form-field--full { grid-column: auto; } .contact-form .btn { width: 100%; justify-content: center; } }
         footer { padding: 2.8rem 0; color: #d8dff2; background: #10172b; text-align: center; }
         .footer-links { display: flex; justify-content: center; flex-wrap: wrap; gap: .45rem; margin-bottom: 1.45rem; }
         .footer-links a { padding: .45rem .72rem; border-radius: 9px; color: #c5cde2; font-size: .86rem; font-weight: 650; }
@@ -321,7 +339,8 @@
             .hero-portrait-wrap { grid-row: 1; width: min(62%, 230px); margin-bottom: .5rem; }
             .hero-portrait { width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: contain; }
             .hero-copy { grid-row: 2; }
-            .portrait-caption { right: -10px; bottom: 12px; }
+            /* On phones, keep the AI / ML label below the portrait so it never obscures the photo. */
+            .portrait-caption { position: static; display: block; width: 100%; max-width: 100%; margin: .8rem auto 0; padding: .72rem .85rem; text-align: center; font-size: .78rem; }
             .hero h1 { font-size: clamp(2.55rem, 12vw, 4rem); }
             .hero h2 { margin-bottom: 1.25rem; }
             .hero-kicker { font-size: .72rem; letter-spacing: .1em; }
@@ -768,82 +787,93 @@
         </div>
     </section>
 
-    <!-- Publications Section -->
+    <!-- Publications Section: compact bibliographic style across every record -->
     <section id="publications">
         <div class="container">
             <h2 class="section-title">Research Publications</h2>
-            
+
             <h3 style="margin-bottom: 1rem;">Conference Papers</h3>
-            <div class="publication-item">
+
+            <article class="publication-item">
                 <h4 class="publication-title">
                     <a href="https://doi.org/10.1109/ICECT61618.2024.10581358" target="_blank" rel="noopener noreferrer">Enhanced Human Activity Recognition using Inertial Sensor Data from Smart Wearables: A Neural Network Approach with Residual Connections</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
-            
-            <div class="publication-item">
+                <p class="publication-authors"><strong>Authors:</strong> Shaida Muhammad, Kiran Hamza, Hamza Ali Imran, and Saad Wazir.</p>
+                <p class="publication-meta"><em>2024 International Conference on Engineering &amp; Computing Technologies (ICECT)</em>. IEEE, 2024.</p>
+            </article>
+
+            <article class="publication-item">
                 <h4 class="publication-title">
-                    <a href="https://doi.org/10.1109/ICoDT262145.2024.10740217" target="_blank" rel="noopener noreferrer">Mukhtasir-Khail-Net: An Ultra Efficient Convolutional Neural Network for Sports Activity Recognition with Wearable Inertial Sensors</a>
+                    <a href="https://doi.org/10.1109/ICoDT262145.2024.10740217" target="_blank" rel="noopener noreferrer">Mukhtasir-Khail-Net: An Ultra-Efficient Convolutional Neural Network for Sports Activity Recognition with Wearable Inertial Sensors</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
-            
-            <div class="publication-item">
+                <p class="publication-authors"><strong>Authors:</strong> Hamza Ali Imran, Shaida Muhammad, Saad Wazir, Ataul Aziz Ikram, and Obaidullah Arshad.</p>
+                <p class="publication-meta"><em>2024 4th International Conference on Digital Futures and Transformative Technologies (ICoDT2)</em>. IEEE, 2024.</p>
+            </article>
+
+            <article class="publication-item">
                 <h4 class="publication-title">
-                    <a href="https://doi.org/10.1109/ICIC63915.2024.11116432" target="_blank" rel="noopener noreferrer"> Paying Attention to Human Activities: Recognizing Daily Activities with an Attention-based Neural Network and Inertial Sensors</a>
+                    <a href="https://doi.org/10.1109/ICIC63915.2024.11116432" target="_blank" rel="noopener noreferrer">Paying Attention to Human Activities: Recognizing Daily Activities with an Attention-Based Neural Network and Inertial Sensors</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
-            
-            <div class="publication-item">
+                <p class="publication-authors"><strong>Authors:</strong> Shaida Muhammad, Hamza Ali Imran, Kiran Hamza, Ataul Aziz Ikram, and Saad Wazir.</p>
+                <p class="publication-meta"><em>2024 5th International Conference on Innovative Computing (ICIC)</em>. IEEE, 2024.</p>
+            </article>
+
+            <article class="publication-item">
                 <h4 class="publication-title">
                     <a href="https://doi.org/10.1109/ComTech65062.2025.11034469" target="_blank" rel="noopener noreferrer">Spak-Net: A Lightweight Convolutional Neural Network for Activity Recognition with Wearable Inertial Sensors</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
+                <p class="publication-authors"><strong>Authors:</strong> Shaida Muhammad, Hamza Ali Imran, Wasim Zaman, and Kiran Hamza.</p>
+                <p class="publication-meta"><em>2025 International Conference on Communication Technologies (ComTech)</em>. IEEE, 2025.</p>
+            </article>
 
-            
-            <div class="publication-item">
+            <article class="publication-item">
                 <h4 class="publication-title">
-                    <a href="https://icaad.selcuk.edu.tr/en/program/" target="_blank" rel="noopener noreferrer">Metaheuristic-Optimized Support Vector Regression as a Real-Time Surrogate for Ship–Bridge Pier Collision Demand</a>
-                    <span class="publication-status">Accepted · Presentation scheduled</span>
+                    <span>Metaheuristic-Optimized Support Vector Regression as a Real-Time Surrogate for Ship–Bridge Pier Collision Demand</span>
+                    <span class="publication-status publication-status--pending">Accepted · publication pending</span>
                 </h4>
-                <p class="publication-meta"><strong>International Conference on AI Across Disciplines (ICAAD 2026)</strong> · Paper ID 164 · Science &amp; Engineering · Oral presentation (online)</p>
-                <p class="publication-authors"><strong>Authors:</strong> Muhammad Shahid Khan, Muhammad Khubaib (presenter), Shaida Muhammad, Hammad Ahmad, and Muhammad Shahzad.</p>
-                <p class="publication-meta"><strong>Scheduled session:</strong> Saturday, 24 October 2026 · 11:00–12:30 (GMT+3) · Virtual Room 2, Session 1. <a href="https://icaad.selcuk.edu.tr/en/program/" target="_blank" rel="noopener noreferrer">View official conference programme</a>.</p>
-                <p class="publication-meta"><strong>Research areas:</strong> Data Science &amp; Big Data Analytics; Smart Systems &amp; Autonomous Technologies. <strong>Publication:</strong> Accepted for conference presentation; full-text collection is planned after the conference and publication details are pending.</p>
-                <details class="publication-details">
-                    <summary>Read abstract and keywords</summary>
-                    <p>Ship–bridge pier collisions threaten navigable-waterway infrastructure worldwide, yet the finite element models used to quantify their consequences are too computationally expensive for real-time deployment in vessel traffic services. This study develops and benchmarks metaheuristic-optimized surrogate models that reproduce collision demand at negligible computational cost. A parametric dataset of 50,000 collision scenarios was generated across six governing variables: vessel tonnage (10,000–50,000 t), impact velocity (5–20 m/s), collision angle (10–80°), current velocity (0.5–3.0 m/s), pier diameter (3–5 m), and pier height (10–30 m). Four demand measures were computed for each scenario: peak impact force, absorbed energy, peak pier stress, and a normalized response ratio. Support Vector Regression was hyperparameter-tuned using three nature-inspired optimizers, the Firefly Algorithm, Grey Wolf Optimization, and Particle Swarm Optimization, and benchmarked against Decision Tree and Random Forest baselines using R², MAE, RMSE, and MAPE under five-fold cross-validation. Sensitivity analysis identified impact velocity and vessel tonnage as the dominant predictors of response ratio, while pier height showed negligible influence. The resulting surrogate evaluates a collision scenario in under a millisecond, supporting its integration into vessel traffic management systems and construction-phase bridge monitoring as a near-real-time screening tool.</p>
-                    <p class="publication-keywords"><strong>Keywords:</strong> ship–bridge pier collision; surrogate modelling; support vector regression; metaheuristic optimization; maritime accident analysis; decision support systems.</p>
-                </details>
-            </div>
+                <p class="publication-authors"><strong>Authors:</strong> Muhammad Shahid Khan, Muhammad Khubaib, Shaida Muhammad, Hammad Ahmad, and Muhammad Shahzad.</p>
+                <p class="publication-meta"><em>International Conference on AI Across Disciplines (ICAAD 2026)</em>. Accepted for oral presentation (online); proceedings and DOI details are pending. <a href="https://icaad.selcuk.edu.tr/en/program/" target="_blank" rel="noopener noreferrer">Conference programme</a>.</p>
+            </article>
 
             <h3 style="margin: 2rem 0 1rem;">Journal Papers</h3>
-            <div class="publication-item">
+
+            <article class="publication-item">
                 <h4 class="publication-title">
                     <a href="https://doi.org/10.47852/bonviewAIA52024083" target="_blank" rel="noopener noreferrer">Enhancing Recruiter Outreach: Predicting Job Ad Quality with Advanced Machine Learning and NLP Models</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
-            <div class="publication-item">
+                <p class="publication-authors"><strong>Author:</strong> Shaida Muhammad.</p>
+                <p class="publication-meta"><em>Artificial Intelligence and Applications</em>, 3(4), 443–458 (2025).</p>
+            </article>
+
+            <article class="publication-item">
                 <h4 class="publication-title">
                     <a href="https://doi.org/10.1109/JIOT.2026.3666469" target="_blank" rel="noopener noreferrer">From Steps to Sentiments: Cross-Domain Transfer Learning for Activity-Based Emotion Detection in Wearable IoT Systems</a>
                     <span class="publication-status">Published</span>
                 </h4>
-            </div>
+                <p class="publication-authors"><strong>Authors:</strong> Hamza Ali Imran, Qaiser Riaz, Kiran Hamza, Shaida Muhammad, and Björn Krüger.</p>
+                <p class="publication-meta"><em>IEEE Internet of Things Journal</em>, 13(10), 21498–21509 (2026).</p>
+            </article>
 
             <h3 style="margin: 2rem 0 1rem;">Book Chapters</h3>
-            <div class="publication-item">
+
+            <article class="publication-item">
                 <h4 class="publication-title">
                     <a href="https://link.springer.com/chapter/10.1007/978-981-95-7766-8_1" target="_blank" rel="noopener noreferrer">Machine Learning for Sustainable Concrete: Predictive Approaches Using Industrial Waste Materials</a>
-                    <span class="publication-status">Published · Book chapter</span>
+                    <span class="publication-status">Published</span>
                 </h4>
-                <p class="publication-meta"><strong>In:</strong> <a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer"><em>Intelligent Predictive Systems: AI and Machine Learning in Engineering</em></a> · Emerging Trends in Mechatronics · Springer Nature Singapore · pp. 1–28 · First online: 2 July 2026.</p>
                 <p class="publication-authors"><strong>Authors:</strong> Muhammad Shahid Khan, Muhammad Khubaib, and Shaida Muhammad.</p>
-                <p class="publication-meta">This chapter applies machine learning models including Decision Tree, Random Forest, CatBoost, XGBoost, and LightGBM to forecast concrete compressive strength incorporating fly ash and marble cutting slurry waste, using SHAP to help interpret model predictions.</p>
-                <p class="publication-meta"><a href="https://link.springer.com/chapter/10.1007/978-981-95-7766-8_1" target="_blank" rel="noopener noreferrer">Read chapter on Springer</a> · <a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer">View the complete book</a>.</p>
-            </div>
+                <p class="publication-meta">In <em><a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer">Intelligent Predictive Systems: AI and Machine Learning in Engineering</a></em> (Emerging Trends in Mechatronics). Springer Nature Singapore, pp. 1–28 (2026).</p>
+                <p class="publication-meta"><a href="https://doi.org/10.1007/978-981-95-7766-8_1" target="_blank" rel="noopener noreferrer">Chapter DOI: 10.1007/978-981-95-7766-8_1</a> · <a href="https://link.springer.com/book/10.1007/978-981-95-7766-8" target="_blank" rel="noopener noreferrer">Book details</a>.</p>
+                <details class="publication-details">
+                    <summary>Publication title history</summary>
+                    <p>Previously listed in the CV under the working title “Machine Learning Approaches for Forecasting the Strength of Concrete Incorporating Fly Ash and Marble Slurry Waste.” The publisher’s final chapter title is used in this citation.</p>
+                </details>
+            </article>
 
         </div>
     </section>
@@ -977,16 +1007,45 @@
     <section id="contact">
         <div class="container">
             <h2 class="section-title">Get In Touch</h2>
-            <div style="text-align: center; max-width: 600px; margin: 0 auto;">
-                <p>I'm currently looking for new opportunities in machine learning and NLP. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                <div style="margin: 2rem 0;">
-                    <a href="mailto:shaidasherpao@gmail.com" class="btn" style="margin-right: 1rem;">
-                        <i class="fas fa-envelope"></i> Email Me
-                    </a>
-                    <a href="Shaida-Muhammad-Resume-2026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV (PDF)</a>
-                    <a href="https://www.linkedin.com/in/shaidamuhammad" target="_blank" class="btn" style="background-color: #0077b5;" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i> LinkedIn
-                    </a>
+            <div class="contact-layout">
+                <div class="contact-panel">
+                    <h3>Let’s talk about AI and machine learning</h3>
+                    <p>I’m open to relevant opportunities, technical collaborations, research discussions, and thoughtful questions about my work.</p>
+                    <div class="contact-options">
+                        <a href="mailto:shaidasherpao@gmail.com" class="btn"><i class="fas fa-envelope" aria-hidden="true"></i> Email Me</a>
+                        <a href="Shaida-Muhammad-Resume-2026.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download CV</a>
+                        <a href="https://www.linkedin.com/in/shaidamuhammad" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn</a>
+                    </div>
+                </div>
+                <div class="contact-panel">
+                    <h3>Send me a message</h3>
+                    <form class="contact-form" action="https://formsubmit.co/shaidasherpao@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="New portfolio message — Shaida Muhammad Sherpao">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://shaidamuhammad.github.io/thanks.html">
+                        <div class="form-honeypot" aria-hidden="true">
+                            <label for="contact-website">Leave this field empty</label>
+                            <input type="text" id="contact-website" name="_honey" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-name">Your name</label>
+                            <input type="text" id="contact-name" name="name" autocomplete="name" maxlength="100" required>
+                        </div>
+                        <div class="form-field">
+                            <label for="contact-email">Your email</label>
+                            <input type="email" id="contact-email" name="_replyto" autocomplete="email" maxlength="254" required>
+                        </div>
+                        <div class="form-field form-field--full">
+                            <label for="contact-subject">Subject</label>
+                            <input type="text" id="contact-subject" name="message_subject" maxlength="150" required>
+                        </div>
+                        <div class="form-field form-field--full">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="6" maxlength="5000" required></textarea>
+                        </div>
+                        <button class="btn" type="submit"><i class="fas fa-paper-plane" aria-hidden="true"></i> Send Message</button>
+                    </form>
+                    <p class="form-note">Messages are delivered through FormSubmit, a third-party form service, to shaidasherpao@gmail.com. The first test submission requires a one-time email confirmation before the form starts forwarding messages.</p>
                 </div>
             </div>
         </div>
